@@ -60,11 +60,13 @@ client.on("messageCreate", async (msg) => {
 				newState.status === discordVoice.AudioPlayerStatus.Idle &&
 				oldState.status !== discordVoice.AudioPlayerStatus.Idle
 			) {
-				player.play(
-					discordVoice.createAudioResource(sounds[getRandomInt(0, sounds.length)]),
-					stage.id,
-					msg.guild.id
-				);
+				setTimeout(() => {
+					player.play(
+						discordVoice.createAudioResource(sounds[getRandomInt(0, sounds.length)]),
+						stage.id,
+						msg.guild.id
+					);
+				}, getRandomInt(1, 4));
 			}
 		});
 	}
