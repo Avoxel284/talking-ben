@@ -66,7 +66,7 @@ client.on("messageCreate", async (msg) => {
 						stage.id,
 						msg.guild.id
 					);
-				}, getRandomInt(1, 4));
+				}, getRandomInt(1, 4) * 1000);
 			}
 		});
 	}
