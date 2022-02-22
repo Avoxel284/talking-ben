@@ -30,15 +30,13 @@ client.on("ready", (bot) => {
 });
 
 client.on("messageCreate", async (msg) => {
-	if (msg.content == "!startben") {
-		const stage =
-			msg.guild.channels.cache.find((c) => c.type === "GUILD_STAGE_VOICE") ||
-			(await msg.guild.channels.create("Stage", { type: "GUILD_STAGE_VOICE" }));
-		await stage.createStageInstance({ topic: "My Talking Ben" }).catch(() => {});
+	if (msg.content.toLowerCase() == "!startben") {
+		const voiceChannel = msg?.member?.voice?.channel;
+		if (!voiceChannel) return msg.reply("You aren't in a VC!");
 
 		const connection = discordVoice.joinVoiceChannel({
-			channelId: stage.id,
-			guildId: stage.guild.id,
+			channelId: voiceChannel.id,
+			guildId: voiceChannel.guild.id,
 			adapterCreator: msg.guild.voiceAdapterCreator,
 		});
 		const player = discordVoice.createAudioPlayer({
@@ -51,7 +49,7 @@ client.on("messageCreate", async (msg) => {
 
 		player.play(
 			discordVoice.createAudioResource(sounds[getRandomInt(0, sounds.length)]),
-			stage.id,
+			voiceChannel.id,
 			msg.guild.id
 		);
 
@@ -63,7 +61,7 @@ client.on("messageCreate", async (msg) => {
 				setTimeout(() => {
 					player.play(
 						discordVoice.createAudioResource(sounds[getRandomInt(0, sounds.length)]),
-						stage.id,
+						voiceChannel.id,
 						msg.guild.id
 					);
 				}, getRandomInt(1, 4) * 1000);
