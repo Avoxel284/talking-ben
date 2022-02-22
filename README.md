@@ -10,4 +10,5 @@ DISCORD_TOKEN = <put your discord token here>
 ```
 2. Install node packages `npm i`
 3. Run the bot `node .`
-4. Join a voice channel and type this command in any text channel: `!startben`.
+4. (obviously invite the bot if you havent already)
+5. Join a voice channel and type this command in any text channel: `!startben`.
