@@ -31,7 +31,7 @@ client.login(config.TOKEN);
  * @param {discord.VoiceChannel} voiceChannel
  */
 async function runBen(voiceChannel) {
-	// if (voiceChannel == null || voiceChannel.guild.me.voice.channel) return;
+	if (voiceChannel == null || voiceChannel.guild.me.voice.channel) return;
 	const connection = discordVoice.joinVoiceChannel({
 		channelId: voiceChannel.id,
 		guildId: voiceChannel.guild.id,
