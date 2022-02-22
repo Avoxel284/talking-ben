@@ -1,6 +1,5 @@
 const discord = require("discord.js");
 const fs = require("fs");
-const { getRandomInt } = require("./lib/util");
 const { Client, Intents } = require("discord.js");
 const discordVoice = require("@discordjs/voice");
 require("dotenv").config();
@@ -15,6 +14,12 @@ const client = new Client({
 	],
 });
 const sounds = [];
+
+function getRandomInt(min, max) {
+	min = Math.ceil(min);
+	max = Math.floor(max);
+	return Math.floor(Math.random() * (max - min) + min);
+}
 
 client.login(process.env.DISCORD_TOKEN);
 
