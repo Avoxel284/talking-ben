@@ -5,7 +5,7 @@ const discord = require("discord.js");
 const fs = require("fs");
 const { Client, Intents } = require("discord.js");
 const discordVoice = require("@discordjs/voice");
-const config = require("./config..json") || require("./config.json");
+const config = require("./config.json");
 
 const client = new Client({
 	partials: ["CHANNEL"],
@@ -48,7 +48,7 @@ async function runBen(voiceChannel) {
 	if (config.RESPOND_ON_MEMBER_VOICE_STATE) {
 		const speakingMap = connection.receiver.speaking;
 		speakingMap.on("start", (userId) => {
-			// player.stop(true);
+			player.stop(true);
 		});
 		speakingMap.on("end", (userId) => {
 			player.play(
