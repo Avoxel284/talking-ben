@@ -1,6 +1,7 @@
 # My Talking Ben
 
 A Discord bot that plays sounds from the My Talking Ben app in voice channels.
+A live version is hosted [here](https://discord.com/api/oauth2/authorize?client_id=943819319748481095&permissions=36702208&scope=bot)
 
 ## Installation
 
